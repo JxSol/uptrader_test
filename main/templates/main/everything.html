@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load tree_menu_tags %}
+
+
+{% block navbar %}
+  {% draw_menu 'add_menu' %}
+{% endblock navbar %}
+  
+
+{% block content %}
+  <h3>Открыта страница
+    
+    {% for part in path %}{{ part }}/{% endfor %}
+      
+  </h3>
+    
+{% endblock content %}
+  
