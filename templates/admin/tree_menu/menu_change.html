@@ -1,0 +1,33 @@
+{% extends "admin/change_form.html" %}
+{% load static %}
+
+
+{% block extrahead %}
+  {{ block.super }}
+  {{ add_node_form.as_p|safe|json_script:"addNodeFormHTML" }}
+  <link rel="stylesheet" href="{% static 'styles/menu_change.css' %}">
+  <script defer type="text/javascript" src="{% static 'scripts/menu_change.js' %}"></script>
+{% endblock %}
+
+
+{% block field_sets %}
+  {{ block.super }}
+  {% if original %}
+    <fieldset class="module">
+      <img src="../img/icon-addlink.svg" alt="">
+      <label><b>Структура меню:</b></label>
+      <nav class="tree" data-menu="{{ original.title }}">
+        
+        {% if not original.structure %}
+          <button class="add-node" type="button" onclick=clickAddNodeButton(this) value="0"> корневой пункт</button>
+        {% endif %}
+          
+      </nav>
+
+    </fieldset>
+    
+  {% endif %}
+{% endblock %}
+
+
+  

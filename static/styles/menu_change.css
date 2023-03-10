@@ -1,0 +1,87 @@
+#addNodeForm > p {
+  display: inline-block;
+  margin: 0;
+}
+
+#cancelNodeForm {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  padding: 5px;
+}
+
+.add-node {
+  display: block;
+  margin-left: 20px;
+}
+
+.add-node::before {
+  content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAAdklEQVQoU2NkIAMwYtNTsF+7ACiuD8QXJzhenYCuBpem+0CFCkD8AahJcIA1Af2QAHRCPZIzBIBsEAaBBwjxf4UTHK9vAPsJqKkfRBERkAuAfkyEaUK3CRQIMIBk03+gpmuNgyf0HgD9oEhsPIH8aE9SiiAUigCqLjsO9oOnNQAAAABJRU5ErkJggg==);
+}
+
+.tree {
+  margin-top: 1rem;
+}
+
+.tree-box {
+  margin: 5px 0 !important;
+  padding-left: 20px !important;
+}
+
+.tree-label + a {
+  margin-left: 10px;
+}
+
+.tree-label + a::after {
+  content: "\00D7";
+  color: #e35f5f;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.tree-node {
+  list-style: none;
+  display: inline-block;
+}
+
+.tree button {
+  background: #264b5d;
+  color: #fff;
+  border-style: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+.tree button:hover {
+  background: #79aec8;
+  transition: .15s;
+  cursor: pointer;
+}
+
+.tree button:disabled {
+  background: #00363a;
+  color: #777;
+  cursor: not-allowed;
+}
+
+.tree .error {
+  color: #e35f5f;
+}
+
+.tree-box > input {
+  display: inline-block !important;
+}
+
+.tree input.error {
+  border: 1px solid #e35f5f;
+}
+
+.tree input.error::placeholder {
+  color: #e35f5f;
+  opacity: 1;
+}
+
+.tree-box input:checked ~ .tree-box {
+  display: block;
+}
+

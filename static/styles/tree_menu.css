@@ -1,0 +1,78 @@
+.tree {
+  width: 30rem;
+  background: #fbfbfb;
+  border: 1px solid #d2d2d2;
+}
+
+.tree-node {
+  list-style: none;
+  display: inline-block;
+  padding: 5px 0;
+}
+
+.tree-box:first-child {
+  border: 0;
+}
+
+.tree a {
+  text-decoration: none;
+}
+
+.tree a:visited {
+  color: #0066cc;
+}
+
+/* Toggle show/hide */
+.tree-box .tree-box {
+  display: none;
+}
+
+.tree-box input:checked ~ .tree-box {
+  display: block;
+}
+
+/* Hide default checkbox */
+.tree-box > input[type=checkbox] {
+  display: none;
+}
+
+/* Add custom checkboxes */
+.tree-box { 
+  position: relative;
+  padding-left: 20px;
+  margin: 0;
+  border-top: 1px solid #d2d2d2;
+}
+
+.tree-box.current { 
+  background-color: #ddfeff;
+}
+
+.tree-label::before {
+  content: "+";
+  position: absolute;
+  top: 0;
+  left: 4px;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 18px;
+  color: #000;
+  transform: rotate(90deg);
+  transition: transform 0.2s;
+}
+
+.tree-box > input:checked ~ .tree-node > .tree-label::before { 
+  content: '–';
+  color: #000;
+  transform: none;
+}
+
+/* Add bullet for childless nodes */
+.tree-node:last-child > .tree-label::before {
+  content: '•' !important;
+  top: -1px;
+  left: 7px;
+  transform: none;
+  transition: none;
+}
+
