@@ -8,8 +8,6 @@ class Command(BaseCommand):
     help = 'Fast run project'
 
     def handle(self, *args, **options):
-        subprocess.call(['python', '-m', 'venv', 'venv'])
-        subprocess.call([r'.\venv\Scripts\activate'])
         subprocess.call(['pip', 'install', '-r', 'requirements.txt'])
         call_command('makemigrations')
         call_command('migrate')

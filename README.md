@@ -29,6 +29,22 @@ named url.
 4) Отрисовка меню и процесс его создания в админке реализован через JavaScript.
 
 ### Запуск:
+Создать виртуальное окружение:
+```sh
+python -m venv venv
+```
+------------------------
+Активировать виртуальное окружение: <br />
+Для Windows
+```sh
+.\venv\Scripts\activate
+```
+Для Linux
+```linux
+source venv/bin/activate
+```
+------------------------
+Выполнить команду:
 ```sh
 python manage.py fastrun
 ```
