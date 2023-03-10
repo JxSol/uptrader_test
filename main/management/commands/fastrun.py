@@ -8,7 +8,6 @@ class Command(BaseCommand):
     help = 'Fast run project'
 
     def handle(self, *args, **options):
-        subprocess.call(['pip', 'install', '-r', 'requirements.txt'])
         call_command('makemigrations')
         call_command('migrate')
         if not User.objects.filter(username='admin').exists():

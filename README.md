@@ -44,6 +44,11 @@ python -m venv venv
 source venv/bin/activate
 ```
 ------------------------
+Установить зависимости:
+```sh
+pip install -r requirements.txt
+```
+------------------------
 Выполнить команду:
 ```sh
 python manage.py fastrun
