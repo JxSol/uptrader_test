@@ -1,6 +1,5 @@
 import subprocess
 
-from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
 from django.core.management import call_command
@@ -9,6 +8,8 @@ class Command(BaseCommand):
     help = 'Fast run project'
 
     def handle(self, *args, **options):
+        subprocess.call(['python', '-m', 'venv', 'venv'])
+        subprocess.call([r'.\venv\Scripts\activate'])
         subprocess.call(['pip', 'install', '-r', 'requirements.txt'])
         call_command('makemigrations')
         call_command('migrate')
