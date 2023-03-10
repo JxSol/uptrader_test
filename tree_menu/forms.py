@@ -4,9 +4,10 @@ from django import forms
 from django.core.validators import RegexValidator
 from django.urls import reverse, NoReverseMatch
 
-from .models import Node, Menu
+from .models import Menu
 
 URL_REGEX = r'((http|https)\:\/\/)?(?:localhost|(?:[a-zA-Z0-9\.\/\?\:@\-_=#]+\.(?:[a-zA-Z]){2,6})|(?:(?:(?:[0-9])|(?:[1-9][0-9])|(?:1[0-9]{2})|(?:2(?:[0-4][0-9]|5[0-5])))\.){3}(?:(?:(?:1[0-9]{2})|(?:2(?:[0-4][0-9]|5[0-5]))|(?:[0-9])|[1-9][0-9]))(?::\d{1,4})?)(?:[a-zA-Z0-9\.\&\/\?\:@\-_=#])*'
+
 
 def validate_url(value: str) -> NoReturn:
     """ Проверяет является ли значение действующим URL или именем URL в проекте. """
@@ -20,7 +21,7 @@ def validate_url(value: str) -> NoReturn:
             raise forms.ValidationError('Нет URL с таким именем или адресом.')
 
 
-class NodeForm(forms.ModelForm):
+class NodeForm(forms.Form):
     title = forms.CharField(
         label='Название',
         label_suffix=':',
@@ -36,7 +37,6 @@ class NodeForm(forms.ModelForm):
             validate_url,
         ],
     )
-
 
     def make_url(self, data: str) -> str:
         """ Преобразует ссылки и имена url в URL """
@@ -57,14 +57,6 @@ class NodeForm(forms.ModelForm):
         if url:
             url = self.make_url(url)
         return url
-
-
-    class Meta:
-        model = Node
-        fields = (
-            'title',
-            'url',
-        )
 
 
 class MenuForm(forms.ModelForm):
