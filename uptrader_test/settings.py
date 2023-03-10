@@ -72,6 +72,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': [
+                'tree_menu.templatetags.tree_menu_tags'
+            ],
         },
     },
 ]
