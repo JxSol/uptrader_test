@@ -2,10 +2,6 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 
-def edit(request):
-    return render(request, 'tree_menu/edit_form.html')
-
-
 def index(request):
     return HttpResponse('Главная страница')
 
