@@ -1,3 +1,5 @@
+import subprocess
+
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
@@ -7,6 +9,7 @@ class Command(BaseCommand):
     help = 'Fast run project'
 
     def handle(self, *args, **options):
+        subprocess.call(['pip', 'install', '-r', 'requirements.txt'])
         call_command('makemigrations')
         call_command('migrate')
         if not User.objects.filter(username='admin').exists():
